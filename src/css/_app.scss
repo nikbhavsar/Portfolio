@@ -1,0 +1,295 @@
+/*
+ *******************
+ * Navbar *
+ *******************
+*/
+
+.logo {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.45em;
+    a {
+        color: $secondary-font;
+    }
+}
+
+.main-nav {
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.logo a,
+.main-nav a {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+}
+
+.main-nav a {
+    color: $secondary-font;
+    font-size: .9em;
+}
+
+.main-nav a:hover {
+    color: #718daa;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+.header {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    z-index: 1;
+   //  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+   //  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+   //  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+    .header,
+    .main-nav {
+        display: flex;
+    }
+    .header {
+        flex-direction: column;
+        align-items: center;
+        .header {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1150px;
+        }
+    }
+}
+
+@media (min-width: 1025px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ================================= 
+  Social Media section
+==================================== */
+
+.social-media-container {
+    width: 60px;
+    position: fixed;
+    bottom: 0px;
+    left: 30px;
+    color: rgb(168, 178, 209);
+}
+
+.social-media-container::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 90px;
+    margin: 0px auto;
+    background-color: rgb(168, 178, 209);
+}
+
+ul .social-media-icon {
+    padding: 15px;
+    font-size: 24px;
+    a {
+        display: block;
+        transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+    a:hover {
+        cursor: pointer;
+        color: #64FFDA;
+        transform: scale(2);
+        transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+}
+
+
+@media (max-width: 769px) {
+    .social-media-container {
+        display: none;
+    }
+    .social-media-container::after {
+        content: "";
+        display: none;
+    }
+    .social-media-container::before {
+        content: "";
+        display: none;
+    }
+}
+
+/* ================================= 
+  Email section
+==================================== */
+
+.email-container {
+    width: 25px;
+    position: fixed;
+    bottom: 0px;
+    right: 30px;
+    color: rgb(168, 178, 209);
+   
+    p a {
+        writing-mode: vertical-rl;
+        padding-bottom: 30px;
+        display: block;
+        transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+    p a:hover {
+        cursor: pointer;
+        color: #64FFDA;
+        transform: scale(1.2);
+        transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+}
+
+.email-container::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 90px;
+    margin: 0px auto;
+    background-color: rgb(168, 178, 209);
+}
+
+@media (max-width: 769px) {
+    .email-container {
+        display: none;
+    }
+    .email-container::after {
+        content: "";
+        display: none;
+    }
+}
+
+/* ================================= 
+  About Me section
+==================================== */
+
+.about-me-section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    h1 {
+        color: $secondary-font;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        color: $themeColor-Dark;
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    h3 {
+        color: $themeColor-Light;
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+}
+
+.about-me__introduction {
+    max-width: 65%;
+    color: $themeColor-Dark;
+    margin-bottom: 30px;
+}
+
+.about-me__download-button{
+  
+    color: rgb(100, 255, 218);
+    display: inline-block;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid rgb(100, 255, 218);
+    font-size: 20px;
+    border-radius: 3px;
+    padding: 1.20rem 1.70rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  
+}
+
+@media (max-width: 769px) {
+
+  .about-me__introduction {
+    max-width: 100%;
+}
+}
+
+
+/* ================================= 
+  About Me Brief section
+==================================== */
+
+
+.about-me-brief-section__div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-me-brief-section__div__introduction{
+  flex: 0 0 50%;
+  padding: 20px;
+color: $themeColor-Dark;
+
+p{
+  padding: 10px 0px;
+}
+
+h2{
+  padding: 18px 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: $secondary-font;
+}
+h3{
+  color: $themeColor-Light;
+  font-weight: bold;
+}
+}
+
+.about-me-brief-section__div__introduction__span{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+@media (max-width: 769px) {
+  .about-me-brief-section__div{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  
+.about-me-brief-section__div__introduction{
+
+  padding: 20px;
+color: $themeColor-Dark;
+}
+  
+}

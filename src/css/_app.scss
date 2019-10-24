@@ -3,6 +3,19 @@
  * Navbar *
  *******************
 */
+.top-nav{
+    background: transparent;
+    box-shadow: 0px;
+}
+.nav-bar{
+    background-color: #172A45;
+    position: fixed;
+    box-shadow: 0px 1px 4px #718daa;
+    top: 0;
+    width: 100vw;
+    transition: top 1s;
+    z-index: 1;
+}
 
 .logo {
     margin: 0;
@@ -44,6 +57,56 @@
     z-index: 1; //  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     //  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     //  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 769px) {
+    .header {
+        font-size: 18px;
+        border-bottom: 1px dotted $themeColor-Light;
+        padding-bottom: 10px;
+    }
+    .main-nav {
+        list-style-type: none;
+        display: none;
+    }
+    .nav-links,
+    .logo {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .main-nav li {
+        text-align: center;
+        margin: auto auto;
+    }
+    .logo {
+        display: inline-block;
+        font-size: 22px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .navbar-toggle {
+        display: inline-block;
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 24px;
+    }
+    .active {
+        display: block;
+        .logo a,
+        .main-nav a {
+            padding: 10px 15px;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+        }
+    }
 }
 
 /* ================================= 
@@ -217,7 +280,7 @@ ul .social-media-icon {
     margin-bottom: 30px;
 }
 
-.about-me__download-button a{
+.about-me__download-button a {
     color: rgb(100, 255, 218);
     display: inline-block;
     margin-top: 20px;
@@ -226,18 +289,16 @@ ul .social-media-icon {
     font-size: 20px;
     border-radius: 3px;
     padding: 1.20rem 1.70rem;
-    
     transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-
 }
 
-.about-me__download-button a:hover{
+.about-me__download-button a:hover {
     color: #0A192F;
     cursor: pointer;
-    background:$secondary-font;
+    background: $secondary-font;
     opacity: 0.7;
     border: 3px solid #0A192F;
     border-radius: 6px;
@@ -248,6 +309,7 @@ ul .social-media-icon {
     -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
+
 @media (max-width: 769px) {
     .about-me__introduction {
         max-width: 100%;
@@ -456,7 +518,7 @@ ul .social-media-icon {
         ul,
         li {
             list-style: square;
-            margin-bottom:5px;
+            margin-bottom: 5px;
         }
     }
 }
@@ -545,20 +607,24 @@ blockquote {
     margin: 0 auto;
     padding: 1em;
     border-left: 5px solid $secondary-font;
-  }
-  blockquote:before {
+}
+
+blockquote:before {
     display: none;
-  }
-  blockquote:not(:first-of-type) {
+}
+
+blockquote:not(:first-of-type) {
     margin-top: .5em;
-  }
-  blockquote p {
+}
+
+blockquote p {
     color: $themeColor-Dark;
     font-size: 25px;
     line-height: 1.4;
     margin-bottom: 20px;
-  }
-  blockquote footer {
+}
+
+blockquote footer {
     margin-top: .5em;
     padding: 0;
     color: $themeColor-Light;
@@ -566,44 +632,64 @@ blockquote {
     font-weight: bold;
     text-align: left;
     font-style: italic;
-  }
-  blockquote footer:before {
+}
+
+blockquote footer:before {
     content: '— ';
-  }
+}
 
-  .contact-button{
-      text-align: center;
-      margin-bottom: 80px;
+.contact-button {
+    text-align: center;
+    margin-bottom: 80px;
+    a {
+        padding: 30px;
+        display: inline-block;
+        width: 250px;
+        border-radius: 10px;
+        background: transparent;
+        border: 2px solid $secondary-font;
+        color: $themeColor-Light;
+        font-size: 30px;
+        font-weight: bold;
+        transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+    a:hover {
+        background: $secondary-font;
+        border: 3px solid #172A45;
+        color: #172A45;
+        transform: scale(0.8);
+        transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        -webkit-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+}
 
-      a{
-          padding: 40px;
-          display: inline-block;
-          width:300px;
-          border-radius: 10px;
-          background:transparent;
-          border: 2px solid $secondary-font;
-          color: $themeColor-Light;
-          font-size: 30px;
-          font-weight: bold;
-          transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -webkit-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-      }
+.copyright {
+    text-align: center;
+    color: #718daa;
+}
 
-      a:hover{
-          background:$secondary-font;
-          border: 3px solid #172A45;
-          color:  #172A45;
-          transform: scale(0.8);
-          transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          -webkit-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-      }
-  }
-  
-  .copyright{
-      text-align: center;
-      color: #718daa;
-  }
+.social-media {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .social-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .social-media-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .social-media-icon a {
+                color: $themeColor-Light;
+                font-size: 35px;
+            }
+        }
+    }
+}

@@ -3,11 +3,15 @@
  * Navbar *
  *******************
 */
-.top-nav{
-    background: transparent;
-    box-shadow: 0px;
+
+.top-nav {
+    background-color: transparent !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none !important;
 }
-.nav-bar{
+
+.nav-bar {
     background-color: #172A45;
     position: fixed;
     box-shadow: 0px 1px 4px #718daa;
@@ -21,7 +25,7 @@
     margin: 0;
     padding: 5px;
     font-weight: bold;
-    font-size: 1.45em;
+    font-size: 1.55em;
     a {
         color: $secondary-font;
     }
@@ -45,9 +49,10 @@
     font-size: .9em;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.logo a:hover {
     color: #718daa;
-    transform: scale(1.1);
+    transform: scale(1.2);
     font-weight: bold;
 }
 
@@ -65,8 +70,7 @@
 
 @media screen and (max-width: 769px) {
     .header {
-        font-size: 18px;
-        border-bottom: 1px dotted $themeColor-Light;
+        font-size: 18px; //  border-bottom: 1px dotted $themeColor-Light;
         padding-bottom: 10px;
     }
     .main-nav {
@@ -107,6 +111,10 @@
             display: block;
         }
     }
+    .top-nav {
+        background-color: #172A45 !important;
+        box-shadow: 0px 1px 4px #718daa !important;
+    }
 }
 
 /* ================================= 
@@ -116,10 +124,21 @@
 @media (min-width: 769px) {
     .header,
     .main-nav {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
         display: flex;
     }
     .header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         .header {
             width: 80%;
@@ -131,7 +150,12 @@
 
 @media (min-width: 1025px) {
     .header {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
     }
 }
@@ -246,13 +270,29 @@ ul .social-media-icon {
 ==================================== */
 
 .about-me-section {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .about-me {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding: 20px;
     h1 {
@@ -310,6 +350,26 @@ ul .social-media-icon {
     -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
+.dash {
+    display: inline-block;
+    height: 3px;
+    width: 20px;
+    background-color: #3498db;
+    animation: blink .5s infinite linear;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 769px) {
     .about-me__introduction {
         max-width: 100%;
@@ -321,11 +381,19 @@ ul .social-media-icon {
 ==================================== */
 
 .about-me-brief-section__div {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .about-me-brief-section__div__introduction {
+    -webkit-box-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     padding: 20px;
     color: $themeColor-Dark;
@@ -351,8 +419,17 @@ ul .social-media-icon {
 
 @media (max-width: 769px) {
     .about-me-brief-section__div {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
         display: flex;
+        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .about-me-brief-section__div__introduction {
@@ -443,11 +520,18 @@ ul .social-media-icon {
 }
 
 .circle-container {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto auto auto auto;
     grid-template-columns: auto auto auto auto;
+    -ms-grid-rows: auto 2.5em 2.5em auto;
     grid-template-rows: auto 2.5em 2.5em auto;
     grid-template-areas: "tl tl tr tr" "cr cr cr cr" "cr cr cr cr" "bl bl br br";
     div {
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
         grid-area: cr;
     }
 }
@@ -460,14 +544,32 @@ ul .social-media-icon {
     margin-left: 1em;
     font-weight: bold;
     color: #0A192F;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .flex {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-left: -1em;
 }
@@ -498,11 +600,27 @@ ul .social-media-icon {
         display: none;
     }
     .mobile-view {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .mobile-view__journey-info {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         color: $themeColor-Dark;
         padding: 20px;
@@ -528,24 +646,48 @@ ul .social-media-icon {
 ==================================== */
 
 .cards-section {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .project-card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 45%;
     flex: 0 0 45%;
     background: #172A45;
     padding: 30px;
     margin: 20px;
     min-height: 450px;
+    -webkit-transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card__icon-section {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -559,13 +701,17 @@ ul .social-media-icon {
     color: $themeColor-Dark;
     font-size: 30px;
     padding: 20px;
+    -o-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -webkit-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     :hover {
         color: $secondary-font;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
         transform: scale(1.2);
+        -o-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -moz-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -ms-transition: all 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
@@ -590,7 +736,7 @@ ul .social-media-icon {
 
 .project-card__footer_tech-stack {
     color: $themeColor-Light;
-    font-size: 15px; // font-weight: bold;
+    font-size: 15px;
     margin-top: 30px;
     span {
         padding: 15px;
@@ -599,6 +745,8 @@ ul .social-media-icon {
 
 @media (max-width: 769px) {
     .project-card {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
     }
 }
@@ -651,6 +799,7 @@ blockquote footer:before {
         color: $themeColor-Light;
         font-size: 30px;
         font-weight: bold;
+        -o-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
@@ -660,7 +809,10 @@ blockquote footer:before {
         background: $secondary-font;
         border: 3px solid #172A45;
         color: #172A45;
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
         transform: scale(0.8);
+        -o-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -moz-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
         -ms-transition: all 0.4s cubic-bezier(0.95, 0.05, 0.795, 0.035);
@@ -679,12 +831,30 @@ blockquote footer:before {
 
 @media (max-width: 769px) {
     .social-media {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         .social-media-list {
+            display: -webkit-box;
+            /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+            display: -ms-flexbox;
+            /* TWEENER - IE 10 */
+            /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
             display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
             justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
             .social-media-icon a {
                 color: $themeColor-Light;

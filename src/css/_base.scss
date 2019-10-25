@@ -1,6 +1,9 @@
 body {
     background: #0A192F;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     font-family: 'Lekton', sans-serif;
     font-size: 20px;
    
@@ -8,14 +11,17 @@ body {
 
 
 .container{
-  margin: 0 auto;
+   
+ 
   max-width: 80%;
+  margin: 0 auto;
+  
   
  
 }
 
 .container-header{
-    margin: 0 auto;
+  margin: 0 auto;
   max-width: 90%;
    
   }
